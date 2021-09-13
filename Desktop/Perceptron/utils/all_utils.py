@@ -6,7 +6,7 @@ def prepare(df):
   x=df.drop("y",axis=1)
   y=df["y"]
   return x,y
-def saveplot(df,model):
+def saveplot(df,model,filename):
   def _scatter(df):
     df.plot(kind="scatter",x="x1",y="x2",c="y",s=100,cmap="summer")
   def _advancedgraph (X,Y, classifier,resolution=1):
@@ -24,7 +24,7 @@ def saveplot(df,model):
     plt.xlim(xx1.min(), xx1.max())
     plt.ylim(xx2.min(), xx2.max())
     plt.plot()
-    plt.savefig("and.png")
+    plt.savefig(filename)
   X,Y=prepare(df)
   _scatter(df)
   _advancedgraph(X, Y, model)
